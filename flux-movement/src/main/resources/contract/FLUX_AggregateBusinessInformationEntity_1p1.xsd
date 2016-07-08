@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== -->
+<!-- ===== FLUX Aggregate Business Information Entity Schema Module                              ===== -->
+<!-- ====================================================================== -->
+<!--
+Schema agency:  DG MARE
+Schema version: 1.1.1
+Schema date:    06/12/2013
+
+Copyright (C) EU DG MARE (2013). All Rights Reserved.
+
+Release notes:
+- Change datatype from DateTime to Date for FLUX_PeriodType complextype
+- Change cardinality for StartDate & EndDate
+- Create specific ACDR_VesselIdentificationType
+-->
+<xsd:schema targetNamespace="urn:xeu:ec:fisheries:flux-bl:FLUX_AggregateBusinessInformationEntity:1:1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:flux_ram="urn:xeu:ec:fisheries:flux-bl:FLUX_AggregateBusinessInformationEntity:1:1" 
+xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:13">
+	<!-- ======================================================================= -->
+	<!-- ===== Imports                                                     ===== -->
+	<!-- ======================================================================= -->
+	<!-- ======================================================================= -->
+	<!-- ===== Import of Unqualified DataType Schema Module                ===== -->
+	<!-- ======================================================================= -->
+  <xsd:import namespace="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:13" schemaLocation="UnqualifiedDataType_13p0.xsd"/>
+	<!-- ======================================================================= -->
+	<!-- ===== Element Declarations                                        ===== -->
+	<!-- ======================================================================= -->
+	<!-- ===== Root Element Declarations                                   ===== -->
+	<!-- ======================================================================= -->
+	<!-- ================================================================== -->
+	<!-- ===== Type Definitions                                       ===== -->
+	<!-- ================================================================== -->
+	<!-- ===== Type Definition: FLUX_ACDR_PartyType                   ===== -->
+	<!-- ================================================================== -->
+	<!-- ================================================================== -->
+	<!-- ===== Type Definition: VesselIdentificationType              ===== -->
+	<!-- ================================================================== -->
+	<xsd:complexType name="VesselIdentificationType">
+		<xsd:sequence>
+			<xsd:element name="FlagState" type="udt:CodeType"/>
+			<xsd:element name="UVI" type="udt:IDType" minOccurs="0"/>
+			<xsd:element name="regionalID" type="udt:IDType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ExternalMarking" type="udt:IDType" minOccurs="0"/>
+			<xsd:element name="RadioCallSign" type="udt:IDType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ================================================================== -->
+	<!-- ===== Type Definition: ACDR_VesselIdentificationType         ===== -->
+	<!-- ===== Reduce of VesselIdentificationType for ACDR            ===== -->
+	<!-- ================================================================== -->
+	<!-- ================================================================== -->
+	<!-- ===== Type Definition: ReportedAreaType                      ===== -->
+	<!-- ================================================================== -->
+	<!-- ================================================================== -->
+	<!-- ===== Type Definition: ReportedCatchType                     ===== -->
+	<!-- ================================================================== -->
+	<!-- ========================================================================================================= -->
+	<!-- ===== Type Definition: FLUX_PeriodType: Reduction of UN01002800 ABIE DelimitedPeriodType defined in  ==== -->
+	<!-- ===== "urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:12" domain     ==== -->
+	<!-- ========================================================================================================= -->
+</xsd:schema>
