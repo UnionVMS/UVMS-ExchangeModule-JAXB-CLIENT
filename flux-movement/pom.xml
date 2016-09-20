@@ -4,7 +4,7 @@
     
     <groupId>eu.europa.ec.fisheries.uvms.service.client.flux</groupId>
     <artifactId>flux-movement</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     
     <properties>
@@ -80,10 +80,10 @@
                             <xsdOptions>
                                 <xsdOption>
                                     <extension>true</extension>
-                                    <xsd>${basedir}\src\main\resources\contract\FLUXVesselPosition_1p1.xsd</xsd>
+                                    <xsd>${basedir}\src\main\resources\contract\FLUXVesselPositionMessage_4p0.xsd</xsd>
                                     <packagename>eu.europa.ec.fisheries.uvms.service.client.flux.movement.contract</packagename>
                                     <bindingFile>${basedir}\src\main\resources\contract\bindings.xml</bindingFile>
-                                </xsdOption>
+                                </xsdOption>                               
                             </xsdOptions>
                         </configuration>
                     </execution>                            
