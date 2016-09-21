@@ -4,17 +4,18 @@
     
     <groupId>eu.europa.ec.fisheries.uvms.service.client.flux</groupId>
     <artifactId>flux-movement</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
         <release.branch.name>uvms-1.0.0</release.branch.name>
         <contract.name>bridge-connector</contract.name>
         <project.scm.id>github</project.scm.id>
         <maven-release-plugin>2.5.3</maven-release-plugin>
+        <build.helper.plugin.version>1.10</build.helper.plugin.version>
+        <jaxb2.version>2.2</jaxb2.version>
     </properties>
 
     <repositories>
@@ -40,55 +41,66 @@
 
     <scm>
         <connection>scm:git:https://github.com/UnionVMS/UVMS-ExchangeModule-JAXB-CLIENT.git</connection>
+        <tag>HEAD</tag>
     </scm>
     
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.6.1</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.source}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build.helper.plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>clean-generated-sources</id>
-                        <phase>clean</phase>
+                        <id>test</id>
+                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>clean</goal>
+                            <goal>add-source</goal>
                         </goals>
                         <configuration>
-                            <filesets>
-                                <fileset>
-                                    <directory>${basedir}/src/main/java/eu/europa/ec/fisheries/uvms/service/client/flux/movement/contract</directory>
-                                </fileset>
-                            </filesets>
+                            <sources>
+                                <source>${basedir}/target/generated-sources</source>
+                            </sources>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin> 
+            </plugin>
+            
+            
             <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-xjc-plugin</artifactId>
-                <version>2.3.0</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>${jaxb2.version}</version>
                 <executions>
                     <execution>
-                        <id>generate-sources</id>
-                        <phase>generate-sources</phase>
+                        <id>xjc</id>
                         <goals>
-                            <goal>xsdtojava</goal>
+                            <goal>xjc</goal>
                         </goals>
-                        <configuration>
-                            <sourceRoot>${basedir}/src/main/java/</sourceRoot>
-                            <xsdOptions>
-                                <xsdOption>
-                                    <extension>true</extension>
-                                    <xsd>${basedir}\src\main\resources\contract\FLUXVesselPositionMessage_4p0.xsd</xsd>
-                                    <packagename>eu.europa.ec.fisheries.uvms.service.client.flux.movement.contract</packagename>
-                                    <bindingFile>${basedir}\src\main\resources\contract\bindings.xml</bindingFile>
-                                </xsdOption>                               
-                            </xsdOptions>
-                        </configuration>
-                    </execution>                            
+                    </execution>
                 </executions>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <generateEpisode>false</generateEpisode>
+                    <sources>
+                        <source>${basedir}/src/main/resources/contract/FLUXVesselPositionMessage_4p0.xsd</source>
+                    </sources>
+                    <extension>true</extension>
+                    <xjbSources>
+                        <xjbSource>${basedir}/src/main/resources/contract/bindings.xjb</xjbSource>
+                    </xjbSources>
+                </configuration>
             </plugin>
+            
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${maven-release-plugin}</version>

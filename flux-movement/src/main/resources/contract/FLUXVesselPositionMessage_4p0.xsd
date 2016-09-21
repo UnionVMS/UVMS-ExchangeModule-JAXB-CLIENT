@@ -6,13 +6,13 @@
     
     <xsd:import namespace="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:18" schemaLocation="ReusableAggregateBusinessInformationEntity_18p0.xsd" />
    
-    <xsd:element name="FLUXVesselPositionMessage" type="rsm:FLUXVesselPositionMessageType" />
-    
-    <xsd:complexType name="FLUXVesselPositionMessageType">
-        <xsd:sequence>
-            <xsd:element maxOccurs="1" minOccurs="1" name="FLUXReportDocument" type="ram:FLUXReportDocumentType" />
-            <xsd:element maxOccurs="1" minOccurs="1" name="VesselTransportMeans" type="ram:VesselTransportMeansType" />
-        </xsd:sequence>
-    </xsd:complexType>
+    <xsd:element name="FLUXVesselPositionMessageType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="1" minOccurs="1" name="FLUXReportDocument" type="ram:FLUXReportDocumentType" />
+                <xsd:element maxOccurs="1" minOccurs="1" name="VesselTransportMeans" type="ram:VesselTransportMeansType" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 
 </xsd:schema>
