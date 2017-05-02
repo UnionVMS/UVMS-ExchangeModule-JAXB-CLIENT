@@ -14,6 +14,7 @@
         <module>flux-message-reciever</module>
         <module>flux-message-sender</module>
         <module>flux-movement</module>
+        <module>flux-sales</module>
     </modules>
 
     <properties>
@@ -23,6 +24,7 @@
         <wsdl.name>${contract.name}.wsdl</wsdl.name>
         <project.scm.id>github</project.scm.id>
         <maven-release-plugin>2.5.3</maven-release-plugin>
+        <joda.time.version>2.9.7</joda.time.version>
     </properties>
 
     <repositories>
@@ -45,6 +47,16 @@
             <url>http://nexus.focus.fish/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda.time.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <scm>
         <connection>scm:git:https://github.com/UnionVMS/UVMS-ExchangeModule-JAXB-CLIENT.git</connection>
