@@ -107,6 +107,7 @@
                     <sources>
                         <source>${basedir}/src/main/resources/contract/FLUXSalesReportMessage_3p0.xsd</source>
                         <source>${basedir}/src/main/resources/contract/FLUXSalesQueryMessage_3p0.xsd</source>
+                        <source>${basedir}/src/main/resources/contract/FLUXSalesResponseMessage_3p0.xsd</source>
                     </sources>
                     <extension>true</extension>
                     <xjbSources>
