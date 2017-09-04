@@ -6,7 +6,7 @@
     
     <groupId>eu.europa.ec.fisheries.uvms.service.client</groupId>
     <artifactId>bridge-connector-client</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>2.0.1</version>
     <description>JAXWS client for FLUX incoming service</description>
 	
     <properties>
@@ -152,6 +152,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/UnionVMS/UVMS-ExchangeModule-JAXB-CLIENT.git</connection>
-    </scm>
+      <tag>client-2.0.1</tag>
+  </scm>
 
 </project>

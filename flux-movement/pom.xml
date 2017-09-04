@@ -4,7 +4,7 @@
     
     <groupId>eu.europa.ec.fisheries.uvms.service.client.flux</groupId>
     <artifactId>flux-movement</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>2.0.1</version>
     <packaging>jar</packaging>
     
     <properties>
@@ -39,7 +39,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/UnionVMS/UVMS-ExchangeModule-JAXB-CLIENT.git</connection>
-        <tag>HEAD</tag>
+        <tag>client-2.0.1</tag>
     </scm>
     
     <build>
